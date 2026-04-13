@@ -19,6 +19,11 @@ def chat():
 
     return jsonify({"reply": response.text})
 
+@app.route("/models", methods=["GET"])
+def list_models():
+    models = client.models.list()
+    model_names = [m.name for m in models]
+    return jsonify({"models": model_names})
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
