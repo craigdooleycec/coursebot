@@ -13,7 +13,7 @@ def chat():
     user_message = request.json["message"]
 
     response = client.models.generate_content(
-        model="gemini-1.5-flash-latest",
+        model="gemini-2.0-flash",
         contents=user_message
     )
 
